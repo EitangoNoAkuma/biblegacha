@@ -266,125 +266,17 @@
   }
 }
 
-/* Bulletin Board */
-.bbs-section {
-  border-top: 1px solid #333;
+/* Disclaimer Footer */
+.disclaimer {
+  margin-top: 4rem;
   padding-top: 2rem;
-  margin-top: 2rem;
-}
-
-.bbs-title {
-  font-size: 1.5rem;
-  font-weight: 400;
-  margin-bottom: 1.5rem;
-  color: #d4d4d4;
-}
-
-.bbs-form {
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-  margin-bottom: 1.5rem;
-}
-
-.bbs-input {
-  background-color: #1a1a1a;
-  border: 1px solid #444;
-  color: #e8e8e8;
-  padding: 0.75rem;
-  font-family: Georgia, 'Times New Roman', serif;
-  font-size: 1rem;
-  transition: border-color 0.2s ease;
-}
-
-.bbs-input:focus {
-  outline: none;
-  border-color: #666;
-}
-
-.bbs-input::placeholder {
+  border-top: 1px solid #333;
+  text-align: center;
   color: #666;
+  font-size: 0.85rem;
+  line-height: 1.8;
 }
 
-.bbs-name-input {
-  max-width: 250px;
-}
-
-.bbs-message-input {
-  resize: vertical;
-  min-height: 80px;
-}
-
-.bbs-submit-button {
-  background-color: #1a1a1a;
-  color: #e8e8e8;
-  border: 1px solid #444;
-  padding: 0.75rem 2rem;
-  font-size: 1rem;
-  font-family: Georgia, 'Times New Roman', serif;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  align-self: flex-start;
-}
-
-.bbs-submit-button:hover {
-  background-color: #2a2a2a;
-  border-color: #666;
-}
-
-.bbs-list {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-
-.bbs-post {
-  background-color: #1a1a1a;
-  border: 1px solid #333;
-  padding: 1rem;
-}
-
-.bbs-post-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 0.75rem;
-  padding-bottom: 0.5rem;
-  border-bottom: 1px solid #2a2a2a;
-}
-
-.bbs-post-name {
-  font-weight: bold;
-  color: #6cb4ee;
-}
-
-.bbs-post-date {
-  font-size: 0.8rem;
-  color: #666;
-}
-
-.bbs-post-message {
-  color: #d4d4d4;
-  line-height: 1.6;
-  white-space: pre-wrap;
-  word-break: break-word;
-}
-
-@media (max-width: 768px) {
-  .bbs-name-input {
-    max-width: 100%;
-  }
-
-  .bbs-submit-button {
-    width: 100%;
-  }
-}
-
-@media (max-width: 480px) {
-  .bbs-post-header {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.25rem;
-  }
+.disclaimer p {
+  margin-bottom: 0.25rem;
 }

@@ -8,9 +8,6 @@ function App() {
   const [savedVerses, setSavedVerses] = useState([])
   const [loading, setLoading] = useState(true)
   const [accessCount, setAccessCount] = useState(0)
-  const [bbsPosts, setBbsPosts] = useState([])
-  const [bbsName, setBbsName] = useState('')
-  const [bbsMessage, setBbsMessage] = useState('')
 
   // Load verses and book names from JSON files on mount
   useEffect(() => {
@@ -49,34 +46,6 @@ function App() {
     localStorage.setItem('bible-gacha-access-count', String(newCount))
     setAccessCount(newCount)
   }, [])
-
-  // Load BBS posts from localStorage on mount
-  useEffect(() => {
-    const posts = localStorage.getItem('bible-gacha-bbs-posts')
-    if (posts) {
-      setBbsPosts(JSON.parse(posts))
-    }
-  }, [])
-
-  // Submit BBS post
-  const submitBbsPost = () => {
-    if (!bbsMessage.trim()) return
-
-    const now = new Date()
-    const dateStr = `${now.getFullYear()}/${String(now.getMonth() + 1).padStart(2, '0')}/${String(now.getDate()).padStart(2, '0')} ${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}`
-
-    const newPost = {
-      id: Date.now(),
-      name: bbsName.trim() || '名無しさん',
-      message: bbsMessage.trim(),
-      date: dateStr
-    }
-
-    const newPosts = [newPost, ...bbsPosts].slice(0, 50) // Keep latest 50 posts
-    setBbsPosts(newPosts)
-    localStorage.setItem('bible-gacha-bbs-posts', JSON.stringify(newPosts))
-    setBbsMessage('')
-  }
 
   // Draw random verse
   const drawGacha = () => {
@@ -129,7 +98,7 @@ function App() {
     <div className="app">
       <div className="access-counter">
         <span className="counter-label">COUNTER</span>
-        <span className="counter-value">{String(accessCount).padStart(6, '0')}</span>
+        <span className="counter-value">{String(accessCount).padStart(10, '0')}</span>
       </div>
       <main className="main-content">
         <h1 className="app-title">Bible Gacha</h1>
@@ -175,42 +144,11 @@ function App() {
           </div>
         )}
 
-        <div className="bbs-section">
-          <h2 className="bbs-title">Bulletin Board</h2>
-          <div className="bbs-form">
-            <input
-              type="text"
-              className="bbs-input bbs-name-input"
-              placeholder="Name (optional)"
-              value={bbsName}
-              onChange={(e) => setBbsName(e.target.value)}
-            />
-            <textarea
-              className="bbs-input bbs-message-input"
-              placeholder="Write your message..."
-              value={bbsMessage}
-              onChange={(e) => setBbsMessage(e.target.value)}
-              rows={3}
-            />
-            <button className="bbs-submit-button" onClick={submitBbsPost}>
-              Post
-            </button>
-          </div>
-          {bbsPosts.length > 0 && (
-            <ul className="bbs-list">
-              {bbsPosts.map((post) => (
-                <li key={post.id} className="bbs-post">
-                  <div className="bbs-post-header">
-                    <span className="bbs-post-name">{post.name}</span>
-                    <span className="bbs-post-date">{post.date}</span>
-                  </div>
-                  <p className="bbs-post-message">{post.message}</p>
-                </li>
-              ))}
-            </ul>
-          )}
-        </div>
       </main>
+      <footer className="disclaimer">
+        <p>Scripture quotations are from the King James Version (KJV), 1611.</p>
+        <p>This application is provided "as is" without warranty of any kind.</p>
+      </footer>
     </div>
   )
 }
