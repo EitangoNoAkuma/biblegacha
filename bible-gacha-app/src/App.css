@@ -123,6 +123,20 @@
   color: #888;
 }
 
+.loading-char {
+  display: inline-block;
+  animation: blink 1.5s ease-in-out infinite;
+}
+
+@keyframes blink {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.2;
+  }
+}
+
 .saved-section {
   border-top: 1px solid #333;
   padding-top: 2rem;
