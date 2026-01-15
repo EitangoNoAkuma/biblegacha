@@ -3,20 +3,29 @@ import './App.css'
 
 function App() {
   const [verses, setVerses] = useState([])
+  const [bookNames, setBookNames] = useState({})
   const [currentVerse, setCurrentVerse] = useState(null)
   const [savedVerses, setSavedVerses] = useState([])
   const [loading, setLoading] = useState(true)
 
-  // Load verses from JSON file on mount
+  // Load verses and book names from JSON files on mount
   useEffect(() => {
-    fetch('./t_kjv.json')
-      .then(response => response.json())
-      .then(data => {
-        setVerses(data)
+    Promise.all([
+      fetch('./t_kjv.json').then(res => res.json()),
+      fetch('./key_english.json').then(res => res.json())
+    ])
+      .then(([versesData, bookData]) => {
+        setVerses(versesData)
+        // Create a mapping from book number to book name
+        const nameMap = {}
+        bookData.resultset.keys.forEach(book => {
+          nameMap[book.b] = book.n
+        })
+        setBookNames(nameMap)
         setLoading(false)
       })
       .catch(error => {
-        console.error('Error loading verses:', error)
+        console.error('Error loading data:', error)
         setLoading(false)
       })
   }, [])
@@ -36,6 +45,11 @@ function App() {
     setCurrentVerse(verses[randomIndex])
   }
 
+  // Get book name from book number
+  const getBookName = (bookNumber) => {
+    return bookNames[bookNumber] || `Book ${bookNumber}`
+  }
+
   // Save current verse
   const saveVerse = () => {
     if (!currentVerse) return
@@ -46,7 +60,7 @@ function App() {
     const savedVerse = {
       id: currentVerse.id,
       text: currentVerse.t,
-      reference: `Book ${currentVerse.b}, Chapter ${currentVerse.c}, Verse ${currentVerse.v}`,
+      reference: `${getBookName(currentVerse.b)} ${currentVerse.c}:${currentVerse.v}`,
       savedDate: dateStr,
       timestamp: Date.now()
     }
@@ -85,7 +99,7 @@ function App() {
             <div className="verse-card">
               <p className="verse-text">{currentVerse.t}</p>
               <p className="verse-reference">
-                Book {currentVerse.b}, Chapter {currentVerse.c}, Verse {currentVerse.v}
+                {getBookName(currentVerse.b)} {currentVerse.c}:{currentVerse.v}
               </p>
               <button className="save-button" onClick={saveVerse}>
                 Save Verse
