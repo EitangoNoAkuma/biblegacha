@@ -10,6 +10,42 @@
   color: #e8e8e8;
   font-family: Georgia, 'Times New Roman', serif;
   padding: 2rem 1rem;
+  position: relative;
+}
+
+/* Access Counter */
+.access-counter {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  background: linear-gradient(to bottom, #2a2a2a, #1a1a1a);
+  border: 2px solid #444;
+  border-radius: 4px;
+  padding: 0.5rem 0.75rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.1), 0 2px 4px rgba(0,0,0,0.5);
+  z-index: 1000;
+}
+
+.counter-label {
+  font-size: 0.6rem;
+  color: #888;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.counter-value {
+  font-family: 'Courier New', monospace;
+  font-size: 1rem;
+  color: #4ade80;
+  background-color: #0a0a0a;
+  padding: 0.25rem 0.5rem;
+  border: 1px solid #333;
+  border-radius: 2px;
+  letter-spacing: 0.15em;
 }
 
 .main-content {
@@ -217,5 +253,138 @@
 
   .verse-card {
     padding: 1.5rem 1.25rem;
+  }
+
+  .access-counter {
+    top: 0.5rem;
+    right: 0.5rem;
+    padding: 0.35rem 0.5rem;
+  }
+
+  .counter-value {
+    font-size: 0.85rem;
+  }
+}
+
+/* Bulletin Board */
+.bbs-section {
+  border-top: 1px solid #333;
+  padding-top: 2rem;
+  margin-top: 2rem;
+}
+
+.bbs-title {
+  font-size: 1.5rem;
+  font-weight: 400;
+  margin-bottom: 1.5rem;
+  color: #d4d4d4;
+}
+
+.bbs-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.bbs-input {
+  background-color: #1a1a1a;
+  border: 1px solid #444;
+  color: #e8e8e8;
+  padding: 0.75rem;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 1rem;
+  transition: border-color 0.2s ease;
+}
+
+.bbs-input:focus {
+  outline: none;
+  border-color: #666;
+}
+
+.bbs-input::placeholder {
+  color: #666;
+}
+
+.bbs-name-input {
+  max-width: 250px;
+}
+
+.bbs-message-input {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.bbs-submit-button {
+  background-color: #1a1a1a;
+  color: #e8e8e8;
+  border: 1px solid #444;
+  padding: 0.75rem 2rem;
+  font-size: 1rem;
+  font-family: Georgia, 'Times New Roman', serif;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  align-self: flex-start;
+}
+
+.bbs-submit-button:hover {
+  background-color: #2a2a2a;
+  border-color: #666;
+}
+
+.bbs-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.bbs-post {
+  background-color: #1a1a1a;
+  border: 1px solid #333;
+  padding: 1rem;
+}
+
+.bbs-post-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #2a2a2a;
+}
+
+.bbs-post-name {
+  font-weight: bold;
+  color: #6cb4ee;
+}
+
+.bbs-post-date {
+  font-size: 0.8rem;
+  color: #666;
+}
+
+.bbs-post-message {
+  color: #d4d4d4;
+  line-height: 1.6;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+@media (max-width: 768px) {
+  .bbs-name-input {
+    max-width: 100%;
+  }
+
+  .bbs-submit-button {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .bbs-post-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
   }
 }
