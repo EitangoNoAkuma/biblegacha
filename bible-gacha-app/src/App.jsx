@@ -9,7 +9,7 @@ function App() {
 
   // Load verses from JSON file on mount
   useEffect(() => {
-    fetch('/t_kjv.json')
+    fetch('./t_kjv.json')
       .then(response => response.json())
       .then(data => {
         setVerses(data)
