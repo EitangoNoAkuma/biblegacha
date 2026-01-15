@@ -7,7 +7,6 @@ function App() {
   const [currentVerse, setCurrentVerse] = useState(null)
   const [savedVerses, setSavedVerses] = useState([])
   const [loading, setLoading] = useState(true)
-  const [accessCount, setAccessCount] = useState(0)
 
   // Load verses and book names from JSON files on mount
   useEffect(() => {
@@ -37,14 +36,6 @@ function App() {
     if (saved) {
       setSavedVerses(JSON.parse(saved))
     }
-  }, [])
-
-  // Access counter - increment on mount
-  useEffect(() => {
-    const count = parseInt(localStorage.getItem('bible-gacha-access-count') || '0', 10)
-    const newCount = count + 1
-    localStorage.setItem('bible-gacha-access-count', String(newCount))
-    setAccessCount(newCount)
   }, [])
 
   // Draw random verse
@@ -96,10 +87,6 @@ function App() {
 
   return (
     <div className="app">
-      <div className="access-counter">
-        <span className="counter-label">COUNTER</span>
-        <span className="counter-value">{String(accessCount).padStart(10, '0')}</span>
-      </div>
       <main className="main-content">
         <h1 className="app-title">Bible Gacha</h1>
         <p className="app-subtitle">King James Version (1611)</p>
