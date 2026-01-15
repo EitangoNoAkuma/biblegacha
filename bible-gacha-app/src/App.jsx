@@ -102,6 +102,7 @@ function App() {
       </div>
       <main className="main-content">
         <h1 className="app-title">Bible Gacha</h1>
+        <p className="app-subtitle">King James Version (1611)</p>
 
         <div className="gacha-section">
           <button className="gacha-button" onClick={drawGacha}>
@@ -146,7 +147,6 @@ function App() {
 
       </main>
       <footer className="disclaimer">
-        <p>Scripture quotations are from the King James Version (KJV), 1611.</p>
         <p>This application is provided "as is" without warranty of any kind.</p>
       </footer>
     </div>
