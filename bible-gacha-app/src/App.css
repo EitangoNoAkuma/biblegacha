@@ -64,6 +64,17 @@
   transform: translateY(2px);
 }
 
+.gacha-button.redraw {
+  background-color: #8b0000;
+  border-color: #a52a2a;
+  color: #fff;
+}
+
+.gacha-button.redraw:hover {
+  background-color: #a52a2a;
+  border-color: #cd5c5c;
+}
+
 .verse-card {
   background-color: #f5f0e8;
   color: #2a2a2a;

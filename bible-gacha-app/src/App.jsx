@@ -92,8 +92,8 @@ function App() {
         <p className="app-subtitle">King James Version (1611)</p>
 
         <div className="gacha-section">
-          <button className="gacha-button" onClick={drawGacha}>
-            Draw Gacha
+          <button className={`gacha-button${currentVerse ? ' redraw' : ''}`} onClick={drawGacha}>
+            {currentVerse ? 'Re-draw Gacha' : 'Draw Gacha'}
           </button>
 
           {currentVerse && (
@@ -103,7 +103,7 @@ function App() {
                 {getBookName(currentVerse.b)} {currentVerse.c}:{currentVerse.v}
               </p>
               <button className="save-button" onClick={saveVerse}>
-                Save Verse
+                Save
               </button>
             </div>
           )}
