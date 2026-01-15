@@ -78,9 +78,20 @@ function App() {
   }
 
   if (loading) {
+    const loadingText = "Loading..."
     return (
       <div className="app">
-        <div className="loading">Loading...</div>
+        <div className="loading">
+          {loadingText.split('').map((char, index) => (
+            <span
+              key={index}
+              className="loading-char"
+              style={{ animationDelay: `${index * 0.15}s` }}
+            >
+              {char}
+            </span>
+          ))}
+        </div>
       </div>
     )
   }
