@@ -1,0 +1,94 @@
+.home {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.home-header {
+  margin-bottom: 3rem;
+}
+
+.home-title {
+  font-size: 2.5rem;
+  font-weight: 400;
+  letter-spacing: 0.05em;
+  color: #d4d4d4;
+  margin-bottom: 0.75rem;
+}
+
+.home-subtitle {
+  font-size: 1rem;
+  color: #888;
+  font-style: italic;
+}
+
+.home-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.content-card {
+  background-color: #1a1a1a;
+  border: 1px solid #2a2a2a;
+  padding: 2rem;
+  transition: border-color 0.2s ease;
+}
+
+.content-card:hover {
+  border-color: #444;
+}
+
+.card-title {
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: #e8e8e8;
+  margin-bottom: 1rem;
+}
+
+.card-description {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: #888;
+  margin-bottom: 1.5rem;
+}
+
+.card-link {
+  display: inline-block;
+  background-color: #2a2a2a;
+  color: #e8e8e8;
+  text-decoration: none;
+  padding: 0.75rem 1.5rem;
+  border: 1px solid #444;
+  font-size: 0.95rem;
+  transition: all 0.2s ease;
+}
+
+.card-link:hover {
+  background-color: #3a3a3a;
+  border-color: #666;
+}
+
+.home-footer {
+  margin-top: 4rem;
+  padding-top: 2rem;
+  border-top: 1px solid #333;
+  text-align: center;
+  color: #666;
+  font-size: 0.85rem;
+}
+
+@media (max-width: 768px) {
+  .home-title {
+    font-size: 2rem;
+  }
+
+  .content-card {
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .home-title {
+    font-size: 1.75rem;
+  }
+}

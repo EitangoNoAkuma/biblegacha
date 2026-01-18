@@ -1,0 +1,130 @@
+.layout {
+  display: flex;
+  min-height: 100vh;
+  background-color: #0a0a0a;
+  color: #e8e8e8;
+  font-family: Georgia, 'Times New Roman', serif;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 240px;
+  min-width: 240px;
+  background-color: #111;
+  border-right: 1px solid #2a2a2a;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  overflow-y: auto;
+}
+
+.sidebar-header {
+  padding: 2rem 1.5rem;
+  border-bottom: 1px solid #2a2a2a;
+}
+
+.site-title {
+  color: #d4d4d4;
+  text-decoration: none;
+  font-size: 1.25rem;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  display: block;
+}
+
+.site-title:hover {
+  color: #fff;
+}
+
+.sidebar-nav {
+  padding: 1rem 0;
+}
+
+.nav-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-item {
+  margin: 0;
+}
+
+.nav-link {
+  display: block;
+  padding: 0.75rem 1.5rem;
+  color: #888;
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: all 0.15s ease;
+  border-left: 3px solid transparent;
+}
+
+.nav-link:hover {
+  color: #d4d4d4;
+  background-color: #1a1a1a;
+}
+
+.nav-link.active {
+  color: #e8e8e8;
+  background-color: #1a1a1a;
+  border-left-color: #666;
+}
+
+/* Main Content Area */
+.main-area {
+  flex: 1;
+  margin-left: 240px;
+  padding: 2rem;
+  min-height: 100vh;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .layout {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    position: relative;
+    width: 100%;
+    min-width: 100%;
+    height: auto;
+    border-right: none;
+    border-bottom: 1px solid #2a2a2a;
+  }
+
+  .sidebar-header {
+    padding: 1rem 1.5rem;
+  }
+
+  .sidebar-nav {
+    padding: 0.5rem 0;
+  }
+
+  .nav-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem;
+    padding: 0 1rem 0.5rem;
+  }
+
+  .nav-link {
+    padding: 0.5rem 1rem;
+    border-left: none;
+    border-radius: 4px;
+  }
+
+  .nav-link.active {
+    border-left-color: transparent;
+    background-color: #2a2a2a;
+  }
+
+  .main-area {
+    margin-left: 0;
+    padding: 1.5rem 1rem;
+  }
+}
